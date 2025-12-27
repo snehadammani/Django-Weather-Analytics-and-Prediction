@@ -41,27 +41,7 @@ The project also includes an **interactive Streamlit dashboard** for visualizati
 
 ```
 
-weather_backend/
-│
-├── weather/                         # Django app
-│   ├── migrations/
-│   ├── management/commands/
-│   ├── models.py
-│   ├── views.py
-│   ├── services.py
-│   ├── urls.py
-│   └── utils.py
-│
-├── weather_backend/                 # Django project settings
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-│
-├── app.py                           # Streamlit dashboard
-├── weather_data.csv                 # Dataset
-├── random_forest_model.pkl          # Trained ML model
-├── Data_analysis_weather_backend.ipynb
-└── manage.py
+
 
 ````
 
@@ -81,6 +61,28 @@ weather_backend/
 ---
 
 ## 🔄 Data Collection
+weather_backend/
+│
+├── weather/                          # Django app
+│   ├── migrations/
+│   ├── management/
+│   │   └── commands/
+│   ├── models.py
+│   ├── views.py
+│   ├── services.py
+│   ├── urls.py
+│   └── utils.py
+│
+├── weather_backend/                  # Django project settings
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── app.py                            # Streamlit dashboard
+├── weather_data.csv                  # Dataset
+├── random_forest_model.pkl           # Trained ML model
+├── Data_analysis_weather_backend.ipynb
+└── manage.py
 
 - Hourly historical weather data fetched using **Visual Crossing Weather API**
 - AQI calculated using **temperature-based logic**
