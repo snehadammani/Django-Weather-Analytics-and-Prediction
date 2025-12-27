@@ -1,0 +1,44 @@
+import requests
+from django.http import JsonResponse
+from .models import WeatherData
+import requests
+
+
+def fetch_weather(request):
+    API_KEY = "2d27263c0efe05e3b0b7d3133f946d52"
+    CITY = "Hyderabad"
+
+    inserted = []
+
+    for i in range(10):   # 🔁 10 test records
+        weather_url = f"https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
+        weather_response = requests.get(weather_url).json()
+
+        temperature = weather_response["main"]["temp"]
+        lat = weather_response["coord"]["lat"]
+        lon = weather_response["coord"]["lon"]
+
+        air_url = f"https://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API_KEY}"
+        air_response = requests.get(air_url).json()
+
+        aqi = air_response["list"][0]["main"]["aqi"]
+
+        row = WeatherData.objects.create(
+            city=CITY,
+            temperature=temperature,
+            air_quality_index=aqi
+        )
+
+        in
+
+def fetch_aqi(city="hyderabad"):
+    AQI_API_TOKEN = "c452a4d82843edf3cf977979fc194ae9820dcc22"
+
+    url = f"https://api.waqi.info/feed/{city}/?token={AQI_API_TOKEN}"
+    response = requests.get(url, timeout=10)
+    data = response.json()
+
+    if data.get("status") == "ok":
+        return data["data"]["aqi"]
+    return None
+
