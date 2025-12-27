@@ -1,49 +1,51 @@
-Django Weather Analytics and Prediction System
-📌 Project Overview
+Got it 👍
+Tum **“give me the code of this”** bol rahi ho, matlab tumhe **README.md ka exact code (Markdown)** chahiye jo **GitHub me directly paste** ho jaaye.
 
-This project is a Django-based Weather Analytics and Prediction System that collects historical weather data, performs exploratory data analysis (EDA), applies multiple machine learning models, and predicts temperature and air quality index (AQI) based on date and time inputs.
+Neeche **FINAL README.md CODE** hai — **copy–paste as it is**.
 
-The system also includes an interactive Streamlit dashboard for visualization and prediction, making it suitable for academic projects, ML demonstrations, and real-world analytics use cases.
+---
 
-🎯 Objectives
+```markdown
+# Django Weather Analytics and Prediction System
 
-Collect and store historical weather data
+## 📌 Project Overview
 
-Perform data analysis and feature engineering
+This project is a **Django-based Weather Analytics and Prediction System** that collects historical weather data, performs exploratory data analysis (EDA), applies multiple machine learning models, and predicts **temperature and air quality index (AQI)** based on date and time inputs.
 
-Compare multiple machine learning models
+The project also includes an **interactive Streamlit dashboard** for visualization and prediction, making it suitable for academic projects and ML demonstrations.
 
-Predict temperature and AQI based on time features
+---
 
-Visualize trends and predictions using an interactive dashboard
+## 🎯 Objectives
 
-Expose weather data via Django APIs
+- Collect and store historical weather data
+- Perform exploratory data analysis (EDA)
+- Train and compare multiple ML models
+- Predict temperature and AQI
+- Visualize trends using an interactive dashboard
+- Expose weather data through Django APIs
 
-🏗️ System Architecture
+---
 
-Backend: Django (REST-style APIs)
+## 🏗️ Tech Stack
 
-Database: SQLite
+- **Backend:** Django
+- **Database:** SQLite
+- **Machine Learning:**  
+  - Linear Regression  
+  - Decision Tree  
+  - Random Forest  
+  - XGBoost  
+  - LSTM  
+- **Visualization:** Streamlit, Matplotlib, Seaborn
+- **Data Source:** Visual Crossing Weather API
 
-ML Models:
+---
 
-Linear Regression
+## 📂 Project Structure
 
-Decision Tree Regressor
+```
 
-Random Forest Regressor
-
-XGBoost Regressor
-
-LSTM (Time Series Model)
-
-Dashboard: Streamlit
-
-Data Source: Visual Crossing Weather API
-
-Model Storage: Pickle (.pkl)
-
-📂 Project Structure
 weather_backend/
 │
 ├── weather/                         # Django app
@@ -61,136 +63,139 @@ weather_backend/
 │   └── wsgi.py
 │
 ├── app.py                           # Streamlit dashboard
-├── weather_data.csv                 # Cleaned dataset
+├── weather_data.csv                 # Dataset
 ├── random_forest_model.pkl          # Trained ML model
-├── Data_analysis_weather_backend.ipynb  # EDA & ML notebook
+├── Data_analysis_weather_backend.ipynb
 └── manage.py
 
-🗄️ Database Schema
-Column Name	Description
-city	City name
-date	Date of observation
-time	Hour of observation
-temperature	Temperature in °C
-air_quality_index	AQI (logic-based)
-created_at	Auto timestamp
-🔄 Data Collection
+````
 
-Weather data is fetched using Visual Crossing Weather API
+---
 
-Hourly data collected for multiple past days
+## 🗄️ Database Schema
 
-AQI is calculated using temperature-based academic logic
+| Column | Description |
+|------|------------|
+| city | City name |
+| date | Date |
+| time | Hour |
+| temperature | Temperature (°C) |
+| air_quality_index | AQI |
+| created_at | Auto timestamp |
 
-Data is stored in SQLite using Django ORM
+---
 
-Automated fetching via Django management commands
+## 🔄 Data Collection
 
-📊 Exploratory Data Analysis (EDA)
+- Hourly historical weather data fetched using **Visual Crossing Weather API**
+- AQI calculated using **temperature-based logic**
+- Data stored using Django ORM
+- Automated data fetching via Django management commands
+
+---
+
+## 📊 Exploratory Data Analysis (EDA)
 
 EDA was performed using:
+- Pandas
+- Matplotlib
+- Seaborn
 
-Pandas
+Analysis includes:
+- Temperature trends
+- AQI distribution
+- Correlation heatmaps
+- Hourly and daily patterns
 
-Matplotlib
+---
 
-Seaborn
+## 🤖 Machine Learning Models
 
-Analysis included:
+| Model | Observation |
+|-----|------------|
+| Linear Regression | Underfitting |
+| Decision Tree | Overfitting |
+| Random Forest | Acceptable |
+| XGBoost | Best generalization |
+| LSTM | Overfitting (small dataset) |
 
-Temperature distribution
+**Final Model Selected:** XGBoost
 
-AQI distribution
+---
 
-Correlation analysis
+## 📈 Model Evaluation Metrics
 
-Hourly and daily trends
+- Mean Squared Error (MSE)
+- Root Mean Squared Error (RMSE)
 
-Heatmaps for feature relationships
+Models were compared to identify overfitting and underfitting behavior.
 
-🤖 Machine Learning Models Used
-Model	Behavior
-Linear Regression	Underfitting
-Decision Tree	Overfitting
-Random Forest	Acceptable
-XGBoost	Best Generalization
-LSTM	Overfitting (small dataset)
-Final Model Selection
+---
 
-XGBoost was selected as the best model due to its balance between accuracy and generalization.
+## 🖥️ Streamlit Dashboard
 
-📈 Model Evaluation Metrics
-
-Models were evaluated using:
-
-Mean Squared Error (MSE)
-
-Root Mean Squared Error (RMSE)
-
-Performance comparison helped identify overfitting and underfitting behavior.
-
-🖥️ Streamlit Dashboard Features
-
-Date and time selection
-
-Temperature prediction
-
-AQI prediction
-
-Weather condition classification
-
-Interactive graphs:
-
-Temperature rise/fall
-
-AQI distribution
-
-Real-time user interaction
+Features:
+- Date & time input
+- Temperature prediction
+- AQI prediction
+- Weather condition classification
+- Interactive graphs showing trends
 
 Run dashboard:
-
+```bash
 streamlit run app.py
+````
 
-🔌 Django APIs
+---
 
-Available endpoints:
+## 🔌 Django APIs
 
-Fetch historical weather data
+* Fetch historical weather data
+* Filter data by date
+* Filter data by time
+* JSON responses for Postman testing
 
-Filter data by date
+---
 
-Filter data by time
+## 🚀 How to Run the Project
 
-JSON responses for Postman testing
+### Django Backend
 
-🚀 How to Run the Project
-1. Backend (Django)
+```bash
 python manage.py migrate
 python manage.py runserver
+```
 
-2. Streamlit Dashboard
+### Streamlit Dashboard
+
+```bash
 streamlit run app.py
+```
 
-🧠 Key Learnings
+---
 
-Weather data is non-linear and time-dependent
+## 🧠 Key Learnings
 
-Simple models underfit complex patterns
+* Weather data is non-linear and time-dependent
+* Simple models underfit complex data
+* Complex models may overfit small datasets
+* Model selection requires balancing bias and variance
 
-Complex models can overfit small datasets
+---
 
-Model selection should balance bias and variance
+## 🔮 Future Enhancements
 
-Visualization improves interpretability
+* Real-time weather updates
+* Rainfall and wind prediction
+* Model deployment via REST APIs
+* Cloud deployment
 
-📌 Future Enhancements
+---
 
-Real-time weather streaming
+## 👩‍💻 Author
 
-Wind speed and rainfall prediction
+**Sneha Dammani**
+GitHub: [https://github.com/snehadammani](https://github.com/snehadammani)
 
-Model deployment via REST API
 
-Cloud deployment
-
-Larger dataset for improved LSTM performance
+```
